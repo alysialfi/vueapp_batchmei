@@ -3,11 +3,21 @@ export default {
     // name: ProductDisplay,
     data() {
         return {
-            number: 1
+            amount: 0,
+            isAmountGreaterThan3: false,
+            subTotal: 0
         }
     },
     methods: {
-        
+        // increaseProductAmount
+        addToCart() {
+            // if (this.amount > 3) {
+            //     this.isAmountGreaterThan3 = true
+            // } else {
+            //     this.isAmountGreaterThan3 = false
+            // }
+            this.isAmountGreaterThan3 = this.amount > 3
+        }
     },
 }
 </script>
@@ -29,15 +39,18 @@ export default {
                     <div class="text-3xl font-semibold">$75</div>
                     <div class="flex">
                         <button class="w-8 h-8 bg-black text-white">-</button>
-                        <div class="w-8 h-8 text-center pt-1 bg-gray-200">0</div>
-                        <button class="w-8 h-8 bg-black text-white">+</button>
+                        <div class="w-8 h-8 text-center pt-1 bg-gray-200">{{ amount }}</div>
+                        <button @click="amount++" class="w-8 h-8 bg-black text-white">+</button>
                     </div>
+                    <div v-if="isAmountGreaterThan3" class="text-red-500">maximum items that can be added is 3</div>
+                    <div :class="isAmountGreaterThan3 ? 'block' : 'hidden'" class="text-red-500">maximum items that can be added is 3</div>
+                    <div :style="isAmountGreaterThan3 ? {display: 'block'} : {display: 'none'}" class="text-red-500">maximum items that can be added is 3</div>
                 </div>
                 <div>
                     <div class="text-xl font-semibold mb-2 mt-12">Subtotal</div>
                     <div class="flex gap-4">
                         <button class="bg-black w-1/2 h-12 text-white">Buy Now</button>
-                        <button class="bg-black w-1/2 text-white">Add to cart</button>
+                        <button @click="addToCart()" class="bg-black w-1/2 text-white">Add to cart</button>
                     </div>
                 </div>
             </div>
