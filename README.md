@@ -1,3 +1,6 @@
+# Figma Link (web sofa)
+https://www.figma.com/file/AXVOz3qgAHxe3DsRpCJPxG/mentoring-batch-april-mei?type=design&node-id=0-1&t=XYPPNcQlecTwtOvq-0
+
 # web
 
 ## Project setup
